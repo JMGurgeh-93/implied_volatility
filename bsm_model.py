@@ -18,12 +18,12 @@ def bsm(S, K, T, r, sigma, q = 0, op_type = 'call'):
         put_value = K * math.exp(-r * T) * norm.cdf(-d2, 0 , 1) - S * math.exp(-q * T) * norm.cdf(-d1, 0, 1)
         return put_value
 
-S = 100.0
-K = 110.0
-T = 0.8
-r = 0.05
-sigma = 0.2
-q = 0.0
+S = 100.0   # price of the underlying
+K = 110.0   # strike price
+T = 0.8     # time to maturity in years
+r = 0.05    # annualised risk-free rate
+sigma = 0.2 # realised volatility 
+q = 0.0     # the dividend yield   
 
 ref_call = bsm_ref.BlackScholesCall(S, K, T, r, sigma, q)
 ref_call_price = ref_call.price()
